@@ -4,13 +4,13 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
-public class Maney {
+public class Money {
 
     private final BigDecimal amount;
 
-    public static final Maney ZERO = new Maney(BigDecimal.ZERO);
+    public static final Money ZERO = new Money(BigDecimal.ZERO);
 
-    public Maney(BigDecimal amount) {
+    public Money(BigDecimal amount) {
         this.amount = amount;
     }
 
@@ -18,20 +18,20 @@ public class Maney {
         return this.amount != null && this.amount.compareTo(BigDecimal.ZERO) > 0;
     }
 
-    public boolean isGreaterThen(Maney maney) {
-        return this.amount != null && this.amount.compareTo(maney.getAmount()) > 0;
+    public boolean isGreaterThen(Money money) {
+        return this.amount != null && this.amount.compareTo(money.getAmount()) > 0;
     }
 
-    public Maney add(Maney maney) {
-        return new Maney(setScale(this.amount.add(maney.getAmount())));
+    public Money add(Money money) {
+        return new Money(setScale(this.amount.add(money.getAmount())));
     }
 
-    public Maney subtract(Maney maney) {
-        return new Maney(setScale(this.amount.subtract(maney.getAmount())));
+    public Money subtract(Money money) {
+        return new Money(setScale(this.amount.subtract(money.getAmount())));
     }
 
-    public Maney multiply(int multiplier) {
-        return new Maney(setScale(this.amount.multiply(new BigDecimal(multiplier))));
+    public Money multiply(int multiplier) {
+        return new Money(setScale(this.amount.multiply(new BigDecimal(multiplier))));
     }
 
     public BigDecimal getAmount() {
@@ -42,8 +42,8 @@ public class Maney {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Maney maney = (Maney) o;
-        return Objects.equals(amount, maney.amount);
+        Money money = (Money) o;
+        return Objects.equals(amount, money.amount);
     }
 
     @Override

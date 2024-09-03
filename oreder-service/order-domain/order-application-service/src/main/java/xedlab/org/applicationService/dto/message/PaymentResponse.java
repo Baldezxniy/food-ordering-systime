@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 
-public record PeymentResponse(
+public record PaymentResponse(
         String id,
         String sagaId,
         String orderId,

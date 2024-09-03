@@ -7,7 +7,7 @@ import xedlab.org.applicationService.dto.track.TrackOrderResponse;
 
 import javax.validation.Valid;
 
-public interface OrdeApplicationService {
+public interface OrderApplicationService {
     CreateOrderResponse createOrder(@Valid CreateOrderCommand createOrderCommand);
 
     TrackOrderResponse trackOrder(@Valid TrackOrderQuery trackOrderQuery);

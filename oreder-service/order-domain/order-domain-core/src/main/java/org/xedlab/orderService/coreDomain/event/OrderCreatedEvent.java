@@ -1,2 +1,11 @@
-package org.xedlab.orderService.coreDomain.event;public class OrderCreatedEvent {
+package org.xedlab.orderService.coreDomain.event;
+
+import org.xedlab.orderService.coreDomain.entity.Order;
+
+import java.time.ZonedDateTime;
+
+public class OrderCreatedEvent extends OrderEvent {
+    public OrderCreatedEvent(Order order, ZonedDateTime createdAt) {
+        super(order, createdAt);
+    }
 }

@@ -1,4 +1,4 @@
-package org.xedlab.domain.valueobject;
+package org.xedlab.commonDomain.valueobject;
 
 import java.util.Objects;
 

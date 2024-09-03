@@ -1,9 +1,9 @@
-package org.xedlab.domain.valueobject;
+package org.xedlab.commonDomain.valueobject;
 
 import java.util.UUID;
 
 public class RestaurantId extends BaseId<UUID> {
-    protected RestaurantId(UUID value) {
+    public RestaurantId(UUID value) {
         super(value);
     }
 }

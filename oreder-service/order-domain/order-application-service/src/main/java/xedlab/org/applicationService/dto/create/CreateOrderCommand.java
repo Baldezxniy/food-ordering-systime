@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-public record CteateOrderCommond(
+public record CreateOrderCommand(
         @NotNull
         UUID customerId,
         @NotNull

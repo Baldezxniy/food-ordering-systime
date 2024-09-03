@@ -1,4 +1,11 @@
 package org.xedlab.orderService.coreDomain.valueobject;
 
-public class TrackingId {
+import org.xedlab.commonDomain.valueobject.BaseId;
+
+import java.util.UUID;
+
+public class TrackingId extends BaseId<UUID> {
+    public TrackingId(UUID value) {
+        super(value);
+    }
 }

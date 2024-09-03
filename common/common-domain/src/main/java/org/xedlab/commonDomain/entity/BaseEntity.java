@@ -1,4 +1,4 @@
-package org.xedlab.domain.entity;
+package org.xedlab.commonDomain.entity;
 
 import java.util.Objects;
 

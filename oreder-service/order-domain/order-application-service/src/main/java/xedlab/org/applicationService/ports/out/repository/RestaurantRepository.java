@@ -1,13 +1,11 @@
 package xedlab.org.applicationService.ports.out.repository;
 
-import org.xedlab.orderService.coreDomain.entity.Order;
-import org.xedlab.orderService.coreDomain.valueobject.TrackingId;
+import org.xedlab.orderService.coreDomain.entity.Restaurant;
 
 import java.util.Optional;
 
-public interface OrderRepository {
-    Order save(Order order);
+public interface RestaurantRepository {
 
-    Optional<Order> findByTrackingId(TrackingId trackingId);
-    
+    Optional<Restaurant> findRestaurantInformation(Restaurant restaurant);
+
 }

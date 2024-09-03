@@ -1,4 +1,11 @@
 package xedlab.org.applicationService.ports.in.message.listener.payment;
 
-public class PaymentResponseMessageListener {
+import xedlab.org.applicationService.dto.message.PaymentResponse;
+
+public interface PaymentResponseMessageListener {
+
+    void paymentComplated(PaymentResponse paymentResponse);
+
+    void paymentCancelled(PaymentResponse paymentResponse);
+
 }

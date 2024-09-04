@@ -47,7 +47,7 @@ class OrderCreateUseCase {
         checkCustomer(createOrderCommand.customerId());
         Restaurant restaurant = checkRestaurant(createOrderCommand);
         Order order = orderDataMapper.createOrderCommandToOrder(createOrderCommand);
-        OrderCreatedEvent orderCreatedEvent = orderDomainService.validationAndInitialiateOrder(order, restaurant);
+        OrderCreatedEvent orderCreatedEvent = orderDomainService.validationAndInitializeOrder(order, restaurant);
         saveOrder(order);
         log.info("Order is created with id: {}", orderCreatedEvent.getOrder().getId().getValue());
         return orderCreatedEvent;

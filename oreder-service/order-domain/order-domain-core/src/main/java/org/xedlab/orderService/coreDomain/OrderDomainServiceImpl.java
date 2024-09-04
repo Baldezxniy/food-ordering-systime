@@ -7,6 +7,7 @@ import org.xedlab.orderService.coreDomain.entity.Restaurant;
 import org.xedlab.orderService.coreDomain.event.OrderCancelledEvent;
 import org.xedlab.orderService.coreDomain.event.OrderCreatedEvent;
 import org.xedlab.orderService.coreDomain.event.OrderPaidEvent;
+import org.xedlab.orderService.coreDomain.exception.OrderDomainException;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -18,7 +19,7 @@ public class OrderDomainServiceImpl implements OrderDomainService {
     private static final String UTC = "UTC";
 
     @Override
-    public OrderCreatedEvent validationAndInitialiateOrder(Order order, Restaurant restaurant) {
+    public OrderCreatedEvent validationAndInitializeOrder(Order order, Restaurant restaurant) {
         validateRestaurant(restaurant);
         setOrderProductInformation(order, restaurant);
         order.validateOrder();
@@ -56,7 +57,7 @@ public class OrderDomainServiceImpl implements OrderDomainService {
 
     private void validateRestaurant(Restaurant restaurant) {
         if (!restaurant.isActive()) {
-            throw new RuntimeException("Restaurant with id " + restaurant.getId().getValue() +
+            throw new OrderDomainException("Restaurant with id " + restaurant.getId().getValue() +
                     " is currently not active!");
         }
     }

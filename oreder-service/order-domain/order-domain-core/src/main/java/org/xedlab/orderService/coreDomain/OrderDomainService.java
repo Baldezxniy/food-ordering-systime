@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface OrderDomainService {
 
-    OrderCreatedEvent validationAndInitialiateOrder(Order order, Restaurant restaurant);
+    OrderCreatedEvent validationAndInitializeOrder(Order order, Restaurant restaurant);
 
     OrderPaidEvent payOrder(Order order);
 

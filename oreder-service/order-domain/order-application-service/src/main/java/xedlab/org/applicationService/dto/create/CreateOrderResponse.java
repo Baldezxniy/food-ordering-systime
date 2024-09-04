@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public record CreateOrderResponse(
         @NotNull
-        UUID orderTracking,
+        UUID orderTrackingId,
         @NotNull
         OrderStatus orderStatus,
         String message

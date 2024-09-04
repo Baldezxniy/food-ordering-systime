@@ -13,6 +13,7 @@ import org.xedlab.orderService.coreDomain.valueobject.StreetAddress;
 import xedlab.org.applicationService.dto.create.CreateOrderCommand;
 import xedlab.org.applicationService.dto.create.CreateOrderResponse;
 import xedlab.org.applicationService.dto.create.OrderAddress;
+import xedlab.org.applicationService.dto.track.TrackOrderResponse;
 
 import java.util.List;
 import java.util.UUID;
@@ -33,16 +34,20 @@ public class OrderDataMapper {
 
     public Order createOrderCommandToOrder(CreateOrderCommand createOrderCommand) {
         return Order.Builder.builder()
-
                 .customerId(new CustomerId(createOrderCommand.customerId()))
                 .restaurantId(new RestaurantId(createOrderCommand.restaurantId()))
                 .deliveryAddress(orderAddressToStreetAddress(createOrderCommand.orderAddress()))
+                .price(new Money(createOrderCommand.price()))
                 .items(orderItemsToOrderItemsEntities(createOrderCommand.items()))
                 .build();
     }
 
-    public CreateOrderResponse orderToCreateOrderResponse(Order order) {
-        return new CreateOrderResponse(order.getTrackingId().getValue(), order.getStatus(), null);
+    public CreateOrderResponse orderToCreateOrderResponse(Order order, String message) {
+        return new CreateOrderResponse(order.getTrackingId().getValue(), order.getStatus(), message);
+    }
+
+    public TrackOrderResponse orderToTrackOrderResponse(Order order) {
+        return new TrackOrderResponse(order.getTrackingId().getValue(), order.getStatus(), order.getFailureMessages());
     }
 
     private StreetAddress orderAddressToStreetAddress(OrderAddress orderAddress) {
